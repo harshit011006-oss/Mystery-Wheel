@@ -21,32 +21,215 @@ const toast = document.getElementById("toast");
 const confettiLayer = document.getElementById("confetti");
 
 const tasks = [
-  { type: "CHAOS", icon: "⚡", title: "10-Second Disaster", text: "You have 10 seconds to find the weirdest object within arm's reach and show it on camera.", time: "10 SEC", points: 100 },
-  { type: "PHOTO", icon: "◉", title: "Gallery Roulette", text: "Scroll your gallery without looking and stop randomly. Show the photo you land on and explain it in exactly one sentence.", time: "30 SEC", points: 125 },
-  { type: "VOICE", icon: "◌", title: "Main Character", text: "Send a 15-second voice note speaking like you are narrating the trailer for the most dramatic movie ever made.", time: "15 SEC", points: 125 },
-  { type: "MUSIC", icon: "♫", title: "Two-Second DJ", text: "Play a completely random song. The other person gets only two seconds to identify it.", time: "2 SEC", points: 100 },
-  { type: "DARE", icon: "!", title: "No Context", text: "Send the last five emojis you used. No explanations allowed for the next five minutes.", time: "5 MIN", points: 100 },
-  { type: "MEMORY", icon: "⌁", title: "Memory Leak", text: "Find the oldest photo of the two of you that you can locate in under 60 seconds.", time: "60 SEC", points: 150 },
-  { type: "CHAOS", icon: "✦", title: "Freeze", text: "Set a timer for 20 seconds. Every time the other person says your name, you must freeze for three seconds.", time: "20 SEC", points: 125 },
-  { type: "DRAW", icon: "✎", title: "60-Second Portrait", text: "Draw the other person in exactly 60 seconds. No erasing. Reveal it at the same time.", time: "60 SEC", points: 150 },
-  { type: "DARE", icon: "◇", title: "Accent Attack", text: "Talk in a completely ridiculous accent for the next three minutes. The other person chooses the accent.", time: "3 MIN", points: 150 },
-  { type: "FOOD", icon: "●", title: "Mystery Bite", text: "Choose two snacks. Close your eyes and identify them by taste alone.", time: "2 MIN", points: 125 },
-  { type: "TEXT", icon: "#", title: "Forbidden Word", text: "Pick a normal everyday word. The other person has to make you say it within five minutes without saying the word themselves.", time: "5 MIN", points: 175 },
-  { type: "PHOTO", icon: "◒", title: "Recreate It", text: "Pick an old photo and recreate the pose as accurately and dramatically as possible. Side-by-side comparison required.", time: "5 MIN", points: 175 },
-  { type: "SPEED", icon: "›", title: "Rapid Fire", text: "Answer 8 questions in 20 seconds. No thinking, no changing answers, no mercy.", time: "20 SEC", points: 150 },
-  { type: "DANCE", icon: "≈", title: "Secret Choreography", text: "Choose a song and invent a completely unnecessary 15-second dance. You must perform it on camera.", time: "15 SEC", points: 150 },
-  { type: "TEXT", icon: "@", title: "Keyboard Chaos", text: "Type the sentence 'I have absolutely no idea what I'm doing' with your eyes closed. No corrections.", time: "20 SEC", points: 100 },
-  { type: "MEMORY", icon: "⌂", title: "The Tiny Detail", text: "Name one tiny detail from your first proper conversation that the other person probably forgot.", time: "2 MIN", points: 175 },
-  { type: "DARE", icon: "☄", title: "Unflattering Filter", text: "Use the first ridiculous face filter you find and keep it on while talking for one full minute.", time: "60 SEC", points: 100 },
-  { type: "GAME", icon: "◇", title: "Rock Paper Panic", text: "Best of five. But before every throw, you must make a different sound effect.", time: "2 MIN", points: 100 },
-  { type: "SECRET", icon: "?", title: "Three Clues", text: "Think of an object near you. Give exactly three clues. The other person gets one guess.", time: "2 MIN", points: 150 },
-  { type: "CHAOS", icon: "☍", title: "Wrong Answers Only", text: "For the next two minutes, every question must be answered incorrectly—but convincingly.", time: "2 MIN", points: 125 },
-  { type: "MUSIC", icon: "♪", title: "Lyric Ambush", text: "Hum the melody of a song without using words. The other person has three guesses.", time: "3 GUESSES", points: 125 },
-  { type: "SECRET", icon: "✧", title: "The Hidden Compliment", text: "Give the other person a compliment without using any of these words: cute, pretty, love, amazing, special.", time: "1 MIN", points: 150 },
-  { type: "PHOTO", icon: "▣", title: "Random Screenshot", text: "Take a screenshot of whatever is currently on your phone and reveal it. No checking first.", time: "10 SEC", points: 100 },
-  { type: "BOSS", icon: "♛", title: "Boss Round", text: "The other person chooses: sing, dance, imitate, confess an embarrassing story, or do a dare. You cannot veto it.", time: "∞", points: 200 }
-];
 
+  {
+    type: "CHAOS",
+    icon: "⚡",
+    title: "Oscar-Worthy Nonsense",
+    text: "Pick the nearest completely ordinary object. You have 30 seconds to give an emotional Oscar-winning speech about why this object changed your life.",
+    time: "30 SEC",
+    points: 125
+  },
+
+  {
+    type: "FUNNY",
+    icon: "🎭",
+    title: "Be Me",
+    text: "For the next 60 seconds, imitate the other person as accurately as possible. Voice, expressions, habits, everything. Extra points for exposing them.",
+    time: "60 SEC",
+    points: 150
+  },
+
+  {
+    type: "CUTE",
+    icon: "♡",
+    title: "The Impossible Compliment",
+    text: "Give the other person a genuinely sweet compliment without mentioning their looks, personality, or saying 'I love you'. Make it something ridiculously specific.",
+    time: "45 SEC",
+    points: 175
+  },
+
+  {
+    type: "CHAOS",
+    icon: "☠",
+    title: "Three-Word Soap Opera",
+    text: "The other person gives you three completely random words. You have 60 seconds to create the most dramatic love story possible using all three.",
+    time: "60 SEC",
+    points: 150
+  },
+
+  {
+    type: "FUNNY",
+    icon: "📢",
+    title: "Breaking News",
+    text: "Pretend you are a news reporter covering the most ridiculous event happening in your room right now. Stay completely serious for 30 seconds.",
+    time: "30 SEC",
+    points: 125
+  },
+
+  {
+    type: "MEMORY",
+    icon: "🧠",
+    title: "Memory Sniper",
+    text: "The other person asks you 5 rapid-fire questions about a random old memory you shared. You get only 3 seconds to answer each one.",
+    time: "15 SEC",
+    points: 175
+  },
+
+  {
+    type: "CHAOS",
+    icon: "🔥",
+    title: "Don't Laugh. Seriously.",
+    text: "You have 60 seconds to make the other person laugh without touching them, showing memes, or saying 'lol'. If they laugh, you lose.",
+    time: "60 SEC",
+    points: 175
+  },
+
+  {
+    type: "FUNNY",
+    icon: "🗣",
+    title: "Accent Disaster",
+    text: "The other person chooses an accent or character voice. You must explain your entire morning in that voice without breaking character.",
+    time: "60 SEC",
+    points: 125
+  },
+
+  {
+    type: "CHAOS",
+    icon: "💀",
+    title: "Wrong Universe",
+    text: "For 90 seconds, pretend you are both characters in a completely different universe chosen by the other person. Never acknowledge the real world.",
+    time: "90 SEC",
+    points: 175
+  },
+
+  {
+    type: "CUTE",
+    icon: "🌷",
+    title: "Tiny Thing",
+    text: "Name one tiny thing the other person does that you secretly notice every single time. You have 20 seconds. No changing your answer.",
+    time: "20 SEC",
+    points: 150
+  },
+
+  {
+    type: "FUNNY",
+    icon: "🎤",
+    title: "Commercial Break",
+    text: "Sell yourself to the other person like you are a completely ridiculous product on television. Include a slogan, two features, and one terrible side effect.",
+    time: "60 SEC",
+    points: 150
+  },
+
+  {
+    type: "CHAOS",
+    icon: "🌀",
+    title: "Reverse Interview",
+    text: "You are the celebrity. The other person is the interviewer. Answer every question like you are desperately trying to hide a ridiculous scandal.",
+    time: "90 SEC",
+    points: 175
+  },
+
+  {
+    type: "GAME",
+    icon: "🎯",
+    title: "One-Second Charades",
+    text: "Act out a movie, celebrity, animal, or object using only ONE second of movement. The other person gets three guesses.",
+    time: "3 GUESSES",
+    points: 150
+  },
+
+  {
+    type: "CHAOS",
+    icon: "🧩",
+    title: "The Forbidden Letter",
+    text: "Pick one common letter of the alphabet. For the next 60 seconds, neither person is allowed to say a word containing that letter. Catch each other cheating.",
+    time: "60 SEC",
+    points: 200
+  },
+
+  {
+    type: "FUNNY",
+    icon: "👨‍⚖️",
+    title: "Relationship Court",
+    text: "Put the other person on trial for one harmless crime. You are the lawyer, judge, and witness. Present your ridiculous evidence and deliver the final verdict.",
+    time: "2 MIN",
+    points: 175
+  },
+
+  {
+    type: "CUTE",
+    icon: "💌",
+    title: "The 5-Second Memory",
+    text: "You have 5 seconds to choose one memory of the other person that you'd happily relive exactly as it happened. Then explain why.",
+    time: "45 SEC",
+    points: 175
+  },
+
+  {
+    type: "FUNNY",
+    icon: "🎨",
+    title: "Portrait of a Criminal",
+    text: "Draw the other person from memory in 45 seconds. You are NOT allowed to show the drawing until the timer ends. Reveal simultaneously.",
+    time: "45 SEC",
+    points: 150
+  },
+
+  {
+    type: "CHAOS",
+    icon: "🧨",
+    title: "Plot Twist",
+    text: "Start telling a completely normal story from your day. Every 10 seconds, the other person shouts 'PLOT TWIST!' and you must instantly change the story.",
+    time: "60 SEC",
+    points: 200
+  },
+
+  {
+    type: "CUTE",
+    icon: "🌙",
+    title: "If We Had Tonight",
+    text: "You have 30 seconds to plan the most perfect completely unrealistic night together. You can spend as much money as you want and go anywhere.",
+    time: "30 SEC",
+    points: 150
+  },
+
+  {
+    type: "MUSIC",
+    icon: "🎶",
+    title: "Humiliated DJ",
+    text: "Hum a song without using ANY lyrics. The other person gets three guesses. If they fail, reveal the song and immediately sing the chorus.",
+    time: "3 GUESSES",
+    points: 150
+  },
+
+  {
+    type: "CHAOS",
+    icon: "🕺",
+    title: "Random Song. No Dignity.",
+    text: "Put your music on shuffle. Whatever song appears, you have to perform 15 seconds of the most unnecessarily dramatic dance imaginable.",
+    time: "15 SEC",
+    points: 125
+  },
+
+  {
+    type: "SECRET",
+    icon: "👀",
+    title: "Guess My Thought",
+    text: "Think of one completely random thing you are looking at right now. Give three clues, but one clue must be deliberately misleading. One guess only.",
+    time: "45 SEC",
+    points: 175
+  },
+
+  {
+    type: "BOSS",
+    icon: "♛",
+    title: "The Final Boss",
+    text: "The other person gets to choose TWO: sing, imitate me, tell an embarrassing story, perform a dramatic scene, answer a dangerous question, or do a completely ridiculous dare. No vetoes.",
+    time: "∞",
+    points: 250
+  }
+
+];
 const colors = [
   "#171923", "#25151a", "#171a24", "#241820", "#121f24", "#211921",
   "#191b28", "#27181e", "#151f22", "#241b17", "#181b24", "#28171d"
