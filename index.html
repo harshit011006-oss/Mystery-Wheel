@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08090d">
+  <title>Mystery Wheel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand-lockup">
+        <div class="brand-mark">?</div>
+        <div>
+          <p class="kicker">CLASSIFIED</p>
+          <h1>MYSTERY WHEEL</h1>
+        </div>
+      </div>
+      <div class="status-pill"><span class="status-dot"></span> SYSTEM ONLINE</div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">ONE SPIN. ONE MISSION.</p>
+        <h2>You don't get to choose<br><span>what happens next.</span></h2>
+        <p class="hero-text">Spin the wheel. Complete whatever it gives you. Some are sweet, some are chaotic, and some are absolutely unfair.</p>
+      </div>
+
+      <div class="stats-panel">
+        <div class="stat-card">
+          <span>COMPLETED</span>
+          <strong id="completedCount">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>SCORE</span>
+          <strong id="scoreCount">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>STREAK</span>
+          <strong id="streakCount">0</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="game-layout">
+      <div class="wheel-area">
+        <div class="pointer"><span></span></div>
+        <div class="wheel-ring">
+          <canvas id="wheel" width="620" height="620" aria-label="Mystery challenge wheel"></canvas>
+          <div class="wheel-center">
+            <span class="center-small">READY?</span>
+            <span class="center-main">SPIN</span>
+          </div>
+        </div>
+        <button id="spinButton" class="spin-button">SPIN THE WHEEL <span>↻</span></button>
+        <p class="spin-note" id="spinNote">24 missions loaded • no repeats until the set is cleared</p>
+      </div>
+
+      <aside class="side-panel">
+        <div class="panel-card mission-log">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">MISSION LOG</p>
+              <h3>Recent drops</h3>
+            </div>
+            <button id="resetButton" class="ghost-button">RESET</button>
+          </div>
+          <div id="historyList" class="history-list">
+            <div class="empty-state">No missions completed yet.<br>Spin to begin.</div>
+          </div>
+        </div>
+
+        <div class="panel-card rules-card">
+          <p class="panel-kicker">RULES</p>
+          <div class="rule"><span>01</span> No rerolls.</div>
+          <div class="rule"><span>02</span> Complete the mission to score.</div>
+          <div class="rule"><span>03</span> Some tasks are timed.</div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <div id="resultModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="result-card" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+      <div class="result-topline">
+        <span id="resultType">MISSION</span>
+        <span id="resultNumber">#01</span>
+      </div>
+      <div class="result-icon" id="resultIcon">✦</div>
+      <p class="result-kicker">YOUR NEXT MOVE</p>
+      <h2 id="resultTitle">Mission unlocked</h2>
+      <p id="resultText" class="result-text"></p>
+      <div class="result-meta">
+        <span id="resultTime">∞</span>
+        <span id="resultPoints">+100 XP</span>
+      </div>
+      <div class="modal-actions">
+        <button id="completeButton" class="primary-button">I DID IT ✓</button>
+        <button id="closeButton" class="ghost-button large">CLOSE</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status"></div>
+  <div id="confetti" class="confetti-layer" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
